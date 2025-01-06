@@ -9,7 +9,7 @@ FILE=$1       # 文件名
 GPU=$2        # 算法运行在哪一块GPU
 batch_size=$3 # 算法使用的batch-size大小
 K=$4          # 窗口大小，对应文中k
-W=$5          # 步长，对应文中w
+W=$5          # 步长，对应文中s
 MODEL_PATH=$6 # SPuM
 FILE_SIZE=$(ls -ll $FILE | awk '{print  $5}')
 if [ "$FILE_SIZE" -lt 500000000 ]; then
@@ -20,7 +20,7 @@ fi
 echo "File size: "$FILE_SIZE", use mode "$MODEL_LIST_NUM
 BASE=${FILE##*/}
 BASE=${BASE%.*}
-OUTPUT=${BASE}_${K}_${W}.pmklc             # 根据编码方案计算的输出的压缩文件名
+OUTPUT=${BASE}_${K}_${W}.pmklc
 static_public_model_path=${MODEL_PATH}"/all_model_${K}_${W}" # Static Public Model所在路径
 
 
