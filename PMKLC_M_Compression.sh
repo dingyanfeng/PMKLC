@@ -1,6 +1,6 @@
 #!/bin/bash
 # ====================================================== #
-# authors: DYF
+# authors: XXX
 # date:    2024/04/25
 # describe:shell file for running PMKLC Source Code
 # example: bash PMKLC_M_Compression.sh DataSets/ScPo 0 320 3 3 SPuM
