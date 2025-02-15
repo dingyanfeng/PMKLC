@@ -1,5 +1,5 @@
 # =============================================================== #
-# authors: DYF
+# authors: XXX
 # date:    2024/04/26
 # describe:a shell file for PMKLC algorithm decompression
 # example: bash PMKLC_M_Decompression.sh ScPo_3_3.pmklc.combined 0 3 3 SPuM
