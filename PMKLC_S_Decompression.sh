@@ -1,5 +1,5 @@
 # =============================================================== #
-# authors: DYF
+# authors: XXX
 # date:    2024/04/26
 # describe:a shell file for KDMSDLC algorithm decompression
 # example: bash PMKLC_S_Decompression.sh ScPo_3_3.pmklc.combined 0 3 3 SPuM
