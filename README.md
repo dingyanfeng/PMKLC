@@ -68,7 +68,7 @@ bash PMKLC_S_Decompression.sh [COMPRESSED FILE] [GPU ID] [k] [s] SPuM
 
 ```shell
 # compress
-bash PMKLC_S_Compression.sh /home/dyf/PMKLC/DataSets/ScPo 0 320 3 3 SPuM
+bash PMKLC_S_Compression.sh /home/xxx/PMKLC/DataSets/ScPo 0 320 3 3 SPuM
 # decompress
 bash PMKLC_S_Decompression.sh ScPo_3_3.pmklc.combined 0 3 3 SPuM
 ```
@@ -77,7 +77,7 @@ bash PMKLC_S_Decompression.sh ScPo_3_3.pmklc.combined 0 3 3 SPuM
 
 ```shell
 # compress
-bash PMKLC_M_Compression.sh /home/dyf/PMKLC/DataSets/ScPo 0 320 3 3 SPuM
+bash PMKLC_M_Compression.sh /home/xxx/PMKLC/DataSets/ScPo 0 320 3 3 SPuM
 # decompress
 bash PMKLC_M_Decompression.sh ScPo_3_3.pmklc.combined 0 3 3 SPuM
 ```
