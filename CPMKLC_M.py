@@ -100,6 +100,10 @@ def compress(model, X, Y, bs, vocab_size, timesteps, device, optimizer, schedule
                 print(f"GPU-{FLAGS.gpu} Save model with pre-train ratio {FLAGS.ratio}")
                 torch.save(model.state_dict(), f'{FLAGS.file_name}_model/{FLAGS.file_name}.{FLAGS.gpu}.pth')
 
+        if num_iters <= timesteps and FLAGS.save:
+            print(f"GPU-{FLAGS.gpu} Save model default")
+            torch.save(model.state_dict(), f'{FLAGS.file_name}_model/{FLAGS.file_name}.{FLAGS.gpu}.pth')
+
 
         # close files
         for i in range(bs):
