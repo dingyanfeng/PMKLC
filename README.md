@@ -1,5 +1,5 @@
 # PMKLC
-
+https://doi.org/10.5281/zenodo.15526367
 ### About The PMKLC
 
 **PMKLC** is a novel Parallel Multi-Knowledge Learning-based Compressor, which is used to compress  genomics data without loss. PMKLC has two compression modes **PMKLC-S** and **PMKLC-M**, where the former runs on a resource-constrained single GPU and the latter is multi-GPU accelerated.
