@@ -6,10 +6,12 @@ import math
 import numerator_and_denominator as num_and_den
 
 def valid_feature_type(feature_type):
-    bool1 = feature_type in ['relu', 'elu+1', 'sqr', 'favor+']
-    bool2 = feature_type.startswith('favor+') and feature_type.split(
-        '_')[1].isdigit()
-    return bool1 or bool2
+    if feature_type in ['relu', 'relu2', 'elu+1', 'sqr', 'abs', 'softplus', 'favor+']:
+        return True
+    if feature_type.startswith('favor+_'):
+        splitted = feature_type.split('_', 1)
+        return len(splitted) == 2 and splitted[1].isdigit()
+    return False
 
 class SLiMPerformer(torch.nn.Module):
 
@@ -163,6 +165,11 @@ class MultiHeadAttention(torch.nn.Module):
         if self._feature_type == 'relu':
             queries = torch.nn.functional.relu(queries)
             keys = torch.nn.functional.relu(keys)
+        elif self._feature_type == 'relu2':
+            queries = torch.nn.functional.relu(queries)
+            keys = torch.nn.functional.relu(keys)
+            queries = queries ** 2
+            keys = keys ** 2
         elif self._feature_type == 'elu+1':
             queries = torch.nn.functional.elu(queries) + 1
             keys = torch.nn.functional.elu(keys) + 1
@@ -172,6 +179,9 @@ class MultiHeadAttention(torch.nn.Module):
         elif self._feature_type == 'abs':
             queries = torch.abs(queries)
             keys = torch.abs(keys)
+        elif self._feature_type == 'softplus':
+            queries = F.softplus(queries)
+            keys = F.softplus(keys)
         else:
 
             head_dim = self._hidden_dim // self._n_heads

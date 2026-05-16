@@ -139,6 +139,8 @@ def get_argument_parser():
                         help='GPU to use')
     parser.add_argument('--model_catena', type=str, default='SPuM',
                         help='the used model catena')
+    parser.add_argument('--feature_type', type=str, default='relu2',
+                        help='Attention feature type (relu/relu2/elu+1/sqr/abs/softplus/favor+/favor+_N)')
     return parser
 
 
@@ -214,7 +216,7 @@ def main():
     num_iters_ = (params['len_series'] + timesteps) // batch_size
 
     finaldic = {'num_iters': num_iters_, 'vocab_dim': 64, 'hidden_dim': 256, 'n_layers': 1,
-                'ffn_dim': 4096, 'n_heads': 8, 'feature_type': 'sqr', 'compute_type': 'iter', 'model_list': FLAGS.model_list}
+                'ffn_dim': 4096, 'n_heads': 8, 'feature_type': FLAGS.feature_type, 'compute_type': 'iter', 'model_list': FLAGS.model_list}
 
 
     # Define Model and load bootstrap weights
@@ -276,7 +278,5 @@ if __name__ == "__main__":
     parser = get_argument_parser()
     FLAGS = parser.parse_args()
     main()
-
-
 
 
